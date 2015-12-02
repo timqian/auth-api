@@ -2,7 +2,7 @@
 
 ### Technologies used:
 
-`[JWT](https://github.com/auth0/node-jsonwebtoken)`, `[express](strongloop/express)`, [`mongoose`](https://github.com/Automattic/mongoose), [`axios`](https://github.com/mzabriskie/axios)
+[`JWT`](https://github.com/auth0/node-jsonwebtoken), [`express`](strongloop/express), [`mongoose`](https://github.com/Automattic/mongoose), [`axios`](https://github.com/mzabriskie/axios)
 
 ### How to start:
 
