@@ -20,5 +20,5 @@ Axios is an HTTP client for the browser and node.js. This means you can resuse t
 
 ### TODOs:
 
-- [ ] : checkout using email
-- [ ] : password bcrypt：https://github.com/ncb000gt/node.bcrypt.js/
+- [ ]  checkout using email
+- [ ]  password bcrypt：https://github.com/ncb000gt/node.bcrypt.js/
