@@ -13,7 +13,10 @@
 
 ### test:
 
-`npm test`
+run `npm test`
+
+I tested the api using [axios](https://github.com/mzabriskie/axios).
+Axios is an HTTP client for the browser and node.js. This means you can resuse the code in your web app to do ajax requests.
 
 ### TODOs:
 
