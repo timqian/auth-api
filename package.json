@@ -1,7 +1,7 @@
 {
-  "name": "user-server",
+  "name": "restful-api-starter",
   "version": "1.0.0",
-  "description": "使用jwt验证用户",
+  "description": "REST api server starter with JWT auth",
   "main": "server.js",
   "scripts": {
     "babel-node": "babel-node --stage 0 --ignore='foo|bar|baz'",
