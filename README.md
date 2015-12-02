@@ -1,6 +1,6 @@
 ## REST api server starter (using JWT, express and mongoose)
 
-### Technologies used:
+### Main tools used:
 
 [`JWT`](https://github.com/auth0/node-jsonwebtoken), [`express`](strongloop/express), [`mongoose`](https://github.com/Automattic/mongoose), [`axios`](https://github.com/mzabriskie/axios)
 
