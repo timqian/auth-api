@@ -2,7 +2,7 @@
 
 ### Technologies used:
 
-`JWT`, `express`, `mongoose`
+`[JWT](https://github.com/auth0/node-jsonwebtoken)`, `[express](strongloop/express)`, [`mongoose`](https://github.com/Automattic/mongoose), [`axios`](https://github.com/mzabriskie/axios)
 
 ### How to start:
 
@@ -20,5 +20,5 @@ Axios is an HTTP client for the browser and node.js. This means you can resuse t
 
 ### TODOs:
 
-- [ ]: 邮件注册功能
-- [ ]: password 存之前加密一下：https://github.com/ncb000gt/node.bcrypt.js/
+- [ ]: checkout using email
+- [ ]: password bcrypt：https://github.com/ncb000gt/node.bcrypt.js/
