@@ -1,0 +1,29 @@
+{
+  "name": "user-server",
+  "version": "1.0.0",
+  "description": "使用jwt验证用户",
+  "main": "server.js",
+  "scripts": {
+    "babel-node": "babel-node --stage 0 --ignore='foo|bar|baz'",
+    "start": "nodemon --exec npm run babel-node -- server.js",
+    "test": "mocha --compilers js:babel-core/register"
+  },
+  "keywords": [
+    "jwt",
+    "express"
+  ],
+  "author": "timqian",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.14.1",
+    "express": "^4.13.3",
+    "jsonwebtoken": "^5.4.1",
+    "mongoose": "^4.2.8",
+    "morgan": "^1.6.1"
+  },
+  "devDependencies": {
+    "axios": "^0.7.0",
+    "babel-core": "^5.8.34",
+    "mocha": "^2.3.4"
+  }
+}
