@@ -34,3 +34,4 @@ TODO
 - [ ]  checkout using email: https://github.com/andris9/Nodemailer
 - [ ]  password bcrypt：https://github.com/ncb000gt/node.bcrypt.js/
 - [ ]  reset password
+- [ ] 使用 [apidoc](https://github.com/apidoc/apidoc) 写 docs
