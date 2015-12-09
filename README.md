@@ -32,7 +32,8 @@ TODO
 ### TODOs:
 
 - [ ]  checkout using email: https://github.com/andris9/Nodemailer
-https://www.v2ex.com/t/100736
+token：http://jonatan.nilsson.is/stateless-tokens-with-jwt/
+way：https://www.v2ex.com/t/100736
 - [ ]  password bcrypt：https://github.com/ncb000gt/node.bcrypt.js/
 - [ ]  reset password
 - [ ] 使用 [apidoc](https://github.com/apidoc/apidoc) 写 docs
