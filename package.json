@@ -19,7 +19,8 @@
     "express": "^4.13.3",
     "jsonwebtoken": "^5.4.1",
     "mongoose": "^4.2.8",
-    "morgan": "^1.6.1"
+    "morgan": "^1.6.1",
+    "nodemailer": "^1.10.0"
   },
   "devDependencies": {
     "axios": "^0.7.0",

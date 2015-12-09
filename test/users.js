@@ -3,11 +3,11 @@ import { BASEURL } from '../config';
 import assert from 'assert';
 
 
-describe('POST /signup', function () {
+describe('POST /user/signup', function () {
 
   // signup initial user
   before(function() {
-    axios.post(`${BASEURL}/signup`, {
+    axios.post(`${BASEURL}/user/signup`, {
       name: `tim`,
       password: '123',
     }).then((res) => {
@@ -18,7 +18,7 @@ describe('POST /signup', function () {
   });
 
   it("should return {success: false, massage: ...}", function () {
-    return axios.post(`${BASEURL}/signup`, {
+    return axios.post(`${BASEURL}/user/signup`, {
       name: `tim`,
       password: '123',
     }).then((res) => {
@@ -30,7 +30,7 @@ describe('POST /signup', function () {
   });
 
   it('should return json: {success: true}', function () {
-    return axios.post(`${BASEURL}/signup`, {
+    return axios.post(`${BASEURL}/user/signup`, {
       name: `${new Date()}tim`,
       password: '123',
     }).then((res) => {
@@ -42,9 +42,9 @@ describe('POST /signup', function () {
   });
 });
 
-describe("POST /login", function () {
+describe("POST /user/login", function () {
   it("should return {success: true, token: ...}", function () {
-    return axios.post(`${BASEURL}/login`, {
+    return axios.post(`${BASEURL}/user/login`, {
       name: 'tim',
       password: '123',
     }).then((res) => {

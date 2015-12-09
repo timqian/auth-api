@@ -1,5 +1,5 @@
 /**
- * used to verify token of client
+ * middleware used to verify token of client
  * NOTE: only with jsonParser,
  */
 

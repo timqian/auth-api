@@ -18,7 +18,7 @@ describe("GET /profile", function () {
   it("should success", function () {
     return axios.get(`${BASEURL}/profile`, {
       params: {
-        token: `eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoidGltIiwiaWF0IjoxNDQ5MDMzMzM1LCJleHAiOjE0NDkxMTk3MzV9.av7zSqHO5lF02tZzYJUTnYDcysyobmthQ2dm0VMHk_c`
+        token: `eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjoidGltIiwiaWF0IjoxNDQ5NjQzMTEwLCJleHAiOjE0NDk3Mjk1MTB9.Hs-omG9gUJRqEnUTfS6SIfQQup5ew763AoNz6sNEkuQ`
       }
     }).then((res) => {
       console.log(res.data);

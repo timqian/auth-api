@@ -4,6 +4,8 @@ const Schema = mongoose.Schema;
 
 // set up a mongoose model and export
 export const User = mongoose.model('User', new Schema({
-    name: String,
-    password: String
+  // email: String,
+  name: String,
+  password: String,
+  // verified: Boolean,
 }));
