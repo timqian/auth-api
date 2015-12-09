@@ -18,12 +18,6 @@ run `npm test`
 I tested the api using [axios](https://github.com/mzabriskie/axios).
 Axios is an HTTP client for the browser and node.js. This means you can resuse the code in your web app to do ajax requests.
 
-### What does this starter do for you
-
-1. sign up (with email verification(using JWT))
-2. login (use name and password)
-3. middleware to verify user for private route(using JWT)
-
 
 ### API description
 
