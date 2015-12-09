@@ -1,3 +1,5 @@
+// TODO: login use email or username
+
 import { User }    from '../../models/User'; // get our mongoose model
 import createToken from '../../utils/createToken';
 

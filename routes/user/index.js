@@ -1,10 +1,10 @@
-import express     from 'express';
+import { Router } from 'express';
 
 import signup from './signup';
 import login from './login';
 import emailVerification from './emailVerification';
 
-const router = express.Router();
+const router = Router();
 
 router.post('/signup', signup);
 router.get('/emailVerification', emailVerification);

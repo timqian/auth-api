@@ -1,6 +1,6 @@
-import express from 'express';
+import { Router } from 'express';
 import verifyToken from '../utils/verifyToken';
-const router = express.Router();
+const router = Router();
 
 router.get('/', verifyToken, (req, res) => {
   console.log(typeof req.decoded);

@@ -1,4 +1,6 @@
-import { User }    from '../../models/User';
+// TODO: send email
+
+import { User } from '../../models/User';
 
 export default function(req, res) {
   const { name, password } = req.body;
