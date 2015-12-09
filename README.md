@@ -27,7 +27,7 @@ Axios is an HTTP client for the browser and node.js. This means you can resuse t
 
 ### API description
 
-TODO
+https://github.com/timqian/jwtAuth-RESTful-server-starter/blob/1.0/%E7%AC%AC%E4%B8%80%E7%89%88API%20description.md
 
 ### TODOs:
 
