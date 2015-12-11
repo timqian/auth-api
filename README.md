@@ -8,7 +8,13 @@
 
 0. install `mongodb ， nodemon, babel(5.8.34)` globaly
 1. start mongodb: `mongod --dbpath YourDBPath`;
-2. in `config.js`, change `DATABASE` to `YourDBPath` and set your `SECRET`
+2. in `config.js`
+
+    1. change `DATABASE` to `YourDBPath`
+    2. set your `SECRET`
+    3. set your `EMAIL_SENDER` used to send verification email
+    4. set your `EMAIL_RECEIVING_VERIFICATION` to accept verification email(for test)
+
 3. run the server: `npm start`
 
 ### test:
