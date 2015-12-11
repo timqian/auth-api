@@ -1,27 +1,26 @@
-// TODO: login use email or username
-
-import { User }    from '../../models/User'; // get our mongoose model
+import  User    from '../../models/User'; // get our mongoose model
 import createToken from '../../utils/createToken';
+import { USER_MESSAGE } from '../../config';
+const { USER_NOT_FOUND, WRONG_PASSWORD } = USER_MESSAGE;
 
 export default function(req, res) {
-  const { name, password } = req.body;
+  const { email, name, password } = req.body;
 
-  // find the user
-  User.findOne({ name }, (err, user) => {
+  // find the user and
+  User.findOne({ $or: [ { name }, { email } ] }, (err, user) => {
     if (err) throw err;
     if (!user) {
-      res.json({ success: false, message: 'Login failed. User not found.' });
+      res.json({ success: false, message: USER_NOT_FOUND });
     } else if (user) {
 
       // check if password matches
-      if (user.password != password) {
-        res.json({ success: false, message: 'Login failed. Wrong password.' });
+      if (user.password !== password) {
+        res.json({ success: false, message: WRONG_PASSWORD });
       } else {
 
         // if user is found and password is right
         // create a token
-
-        const payload = { name: user.name };
+        const payload = { name: user.name, verified: user.verified };
         const token = createToken(payload);
 
         // return the information including token as JSON

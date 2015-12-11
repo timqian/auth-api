@@ -6,7 +6,7 @@
   "scripts": {
     "babel-node": "babel-node --stage 0 --ignore='foo|bar|baz'",
     "start": "nodemon --exec npm run babel-node -- server.js",
-    "test": "mocha --compilers js:babel-core/register"
+    "test": "mocha --recursive --compilers js:babel-core/register --timeout 15000"
   },
   "keywords": [
     "jwt",
