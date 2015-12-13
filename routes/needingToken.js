@@ -3,8 +3,10 @@ import verifyToken from '../utils/verifyToken';
 const router = new Router();
 
 router.get('/', verifyToken, (req, res) => {
-  console.log(typeof req.decoded);
-  res.json(req.decoded);
+
+  // send the jwt claim directly
+  const claim = req.decoded;
+  res.json(claim);
 });
 
 export default router;

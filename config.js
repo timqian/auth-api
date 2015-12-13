@@ -16,6 +16,7 @@ export const USER_MESSAGE = { // message sent to client
   NAME_TAKEN: 'Name or email has been taken',
   USER_NOT_FOUND: 'User not found',
   WRONG_PASSWORD: 'wrong password',
+  NEED_EMAIL_VERIFICATION: 'You need to verify your email first',
 };
 
 export const EMAIL_RECEIVING_VERIFICATION = 'timqian92@qq.com';

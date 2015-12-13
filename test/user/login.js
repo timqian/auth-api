@@ -17,9 +17,7 @@ describe('POST /user/login', function () {
       password: '123',
     }).then((res) => {
       console.log('before message:', res.data);
-    }).catch((res) => {
-      throw new Error(res);
-    });
+    }).catch((e) => { throw e; });
   });
 
   it('should success', function () {
@@ -29,9 +27,7 @@ describe('POST /user/login', function () {
     }).then((res) => {
       assert.equal(res.data.success, true, 'success should be true');
       assert.notEqual(res.data.token, null, 'token should exist');
-    }).catch((res) => {
-      throw new Error(res);
-    });
+    }).catch((e) => { throw e; });
   });
 
   it('should success', function () {
@@ -41,9 +37,7 @@ describe('POST /user/login', function () {
     }).then((res) => {
       assert.equal(res.data.success, true, 'success should be true');
       assert.notEqual(res.data.token, null, 'token should exist');
-    }).catch((res) => {
-      throw new Error(res);
-    });
+    }).catch((e) => { throw e; });
   });
 
   it('should return USER_NOT_FOUND', function () {
@@ -52,9 +46,7 @@ describe('POST /user/login', function () {
       password: '123',
     }).then((res) => {
       assert.equal(res.data.message, USER_NOT_FOUND, 'message mismatch');
-    }).catch((res) => {
-      throw new Error(res);
-    });
+    }).catch((e) => { throw e; });
   });
 
   it('should return USER_NOT_FOUND', function () {
@@ -63,9 +55,7 @@ describe('POST /user/login', function () {
       password: '123',
     }).then((res) => {
       assert.equal(res.data.message, USER_NOT_FOUND, 'message mismatch');
-    }).catch((res) => {
-      throw new Error(res);
-    });
+    }).catch((e) => { throw e; });
   });
 
   it('should return WRONG_PASSWORD', function () {
@@ -74,9 +64,7 @@ describe('POST /user/login', function () {
       password: '1234',
     }).then((res) => {
       assert.equal(res.data.message, WRONG_PASSWORD, 'message mismatch');
-    }).catch((res) => {
-      throw new Error(res);
-    });
+    }).catch((e) => { throw e; });
   });
 
   it('should return WRONG_PASSWORD', function () {
@@ -85,8 +73,6 @@ describe('POST /user/login', function () {
       password: '1234',
     }).then((res) => {
       assert.equal(res.data.message, WRONG_PASSWORD, 'message mismatch');
-    }).catch((res) => {
-      throw new Error(res);
-    });
+    }).catch((e) => { throw e; });
   });
 });

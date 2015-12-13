@@ -16,9 +16,7 @@ describe('POST /user/signup', function () {
       password: '123',
     }).then((res) => {
       console.log('before message:', res.data);
-    }).catch((res) => {
-      throw new Error(res);
-    });
+    }).catch((e) => { throw e; });
   });
 
 
@@ -29,9 +27,7 @@ describe('POST /user/signup', function () {
       password: '123',
     }).then((res) => {
       assert.equal(res.data.message, NAME_TAKEN, 'message mismatch');
-    }).catch((res) => {
-      throw new Error(res);
-    });
+    }).catch((e) => { throw e; });
   });
 
   it('should return NAME_TAKEN(name)', function () {
@@ -41,9 +37,7 @@ describe('POST /user/signup', function () {
       password: '123',
     }).then((res) => {
       assert.equal(res.data.message, NAME_TAKEN, 'message mismatch');
-    }).catch((res) => {
-      throw new Error(res);
-    });
+    }).catch((e) => { throw e; });
   });
 
   it('should return MAIL_SENT', function () {
@@ -54,10 +48,7 @@ describe('POST /user/signup', function () {
     }).then((res) => {
       console.log(res.data);
       assert.equal(res.data.message, MAIL_SENT, 'message mismatch');
-    }).catch((res) => {
-      console.log(res);
-      throw new Error(res);
-    });
+    }).catch((e) => { throw e; });
   });
 
 });

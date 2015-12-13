@@ -44,3 +44,8 @@ way：https://www.v2ex.com/t/100736
 - [ ]  reset password
 - [ ] 使用 [apidoc](https://github.com/apidoc/apidoc) 写 docs
 - [ ] promisify
+
+### Untested routes:
+
+- user/emialVerification
+- /needingTokenAndVerified  (with email verified)
