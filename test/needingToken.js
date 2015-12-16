@@ -16,14 +16,14 @@ let token = '';
 describe('GET /needingToken', function () {
 
   before(async function() {
-    const signupRes = await axios.post(`${BASEURL}/user/signup`, {
+    const signupRes = await axios.post(`${BASEURL}/signup`, {
       email: `${EMAIL_RECEIVING_VERIFICATION}`,
       name: `tim`,
       password: '123',
     }).catch((e) => { throw e;});
     // console.log(signupRes);
 
-    const loginRes = await axios.post(`${BASEURL}/user/login`, {
+    const loginRes = await axios.post(`${BASEURL}/login`, {
       name: 'tim',
       password: '123',
     }).catch((e) => { throw e; });

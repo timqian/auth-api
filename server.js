@@ -13,7 +13,7 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(morgan('dev'));
-app.use('/user', user);
+app.use('/', user);
 
 app.use('/needingToken', needingToken);
 app.use('/needingTokenAndVerified', needingTokenAndVerified);
@@ -23,7 +23,7 @@ app.listen(port);
 console.log('Magic happens at http://localhost:' + port);
 
 
-// handle promise error
+// handle unhandled promise rejection
 // https://nodejs.org/api/process.html#process_event_unhandledrejection
 process.on('unhandledRejection', function(reason, p) {
     console.log('Unhandled Rejection at: Promise ', p, ' reason: ', reason);

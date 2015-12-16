@@ -6,11 +6,11 @@ import { BASEURL, USER_MESSAGE, EMAIL_RECEIVING_VERIFICATION }
 
 const { MAIL_SENT, NAME_TAKEN } = USER_MESSAGE;
 
-describe('POST /user/signup', function () {
+describe('POST /signup', function () {
 
   // signup initial user
   before(function() {
-    axios.post(`${BASEURL}/user/signup`, {
+    axios.post(`${BASEURL}/signup`, {
       email: `${EMAIL_RECEIVING_VERIFICATION}`,
       name: `tim`,
       password: '123',
@@ -21,7 +21,7 @@ describe('POST /user/signup', function () {
 
 
   it('should return NAME_TAKEN(email)', function () {
-    return axios.post(`${BASEURL}/user/signup`, {
+    return axios.post(`${BASEURL}/signup`, {
       email: `${EMAIL_RECEIVING_VERIFICATION}`,
       name: `timq`,
       password: '123',
@@ -31,7 +31,7 @@ describe('POST /user/signup', function () {
   });
 
   it('should return NAME_TAKEN(name)', function () {
-    return axios.post(`${BASEURL}/user/signup`, {
+    return axios.post(`${BASEURL}/signup`, {
       email: 't92@qq.com',
       name: `tim`,
       password: '123',
@@ -41,7 +41,7 @@ describe('POST /user/signup', function () {
   });
 
   it('should return MAIL_SENT', function () {
-    return axios.post(`${BASEURL}/user/signup`, {
+    return axios.post(`${BASEURL}/signup`, {
       email: `${Date.now()}@qq.com`,
       name: `tim${Date.now()}`,
       password: '123',

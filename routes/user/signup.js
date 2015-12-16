@@ -22,7 +22,7 @@ export default function(req, res) {
         // send verification email
         const token = createToken({ name });
         const verifyAddress =
-          `${BASEURL}/user/emailVerification/?token=${token}`;
+          `${BASEURL}/emailVerification/?token=${token}`;
 
         sendMail(email, verifyAddress)
         .then((info) => {

@@ -7,11 +7,11 @@ import { BASEURL, USER_MESSAGE, EMAIL_RECEIVING_VERIFICATION }
 const { USER_NOT_FOUND, WRONG_PASSWORD} = USER_MESSAGE;
 
 
-describe('POST /user/login', function () {
+describe('POST /login', function () {
 
   // signup initial user
   before(function() {
-    axios.post(`${BASEURL}/user/signup`, {
+    axios.post(`${BASEURL}/signup`, {
       email: `${EMAIL_RECEIVING_VERIFICATION}`,
       name: `tim`,
       password: '123',
@@ -21,7 +21,7 @@ describe('POST /user/login', function () {
   });
 
   it('should success', function () {
-    return axios.post(`${BASEURL}/user/login`, {
+    return axios.post(`${BASEURL}/login`, {
       name: 'tim',
       password: '123',
     }).then((res) => {
@@ -31,7 +31,7 @@ describe('POST /user/login', function () {
   });
 
   it('should success', function () {
-    return axios.post(`${BASEURL}/user/login`, {
+    return axios.post(`${BASEURL}/login`, {
       email: `${EMAIL_RECEIVING_VERIFICATION}`,
       password: '123',
     }).then((res) => {
@@ -41,7 +41,7 @@ describe('POST /user/login', function () {
   });
 
   it('should return USER_NOT_FOUND', function () {
-    return axios.post(`${BASEURL}/user/login`, {
+    return axios.post(`${BASEURL}/login`, {
       name: `tim${Date.now()}`,
       password: '123',
     }).then((res) => {
@@ -50,7 +50,7 @@ describe('POST /user/login', function () {
   });
 
   it('should return USER_NOT_FOUND', function () {
-    return axios.post(`${BASEURL}/user/login`, {
+    return axios.post(`${BASEURL}/login`, {
       email: `tim${Date.now()}@qq.com`,
       password: '123',
     }).then((res) => {
@@ -59,7 +59,7 @@ describe('POST /user/login', function () {
   });
 
   it('should return WRONG_PASSWORD', function () {
-    return axios.post(`${BASEURL}/user/login`, {
+    return axios.post(`${BASEURL}/login`, {
       name: `tim`,
       password: '1234',
     }).then((res) => {
@@ -68,7 +68,7 @@ describe('POST /user/login', function () {
   });
 
   it('should return WRONG_PASSWORD', function () {
-    return axios.post(`${BASEURL}/user/login`, {
+    return axios.post(`${BASEURL}/login`, {
       email: `${EMAIL_RECEIVING_VERIFICATION}`,
       password: '1234',
     }).then((res) => {
