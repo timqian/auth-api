@@ -49,4 +49,4 @@ way：https://www.v2ex.com/t/100736
 ### Untested routes:
 
 - user/emialVerification
-- /needingTokenAndVerified  (with email verified)
+- /needingTokenAndEmailVerified  (with email verified)

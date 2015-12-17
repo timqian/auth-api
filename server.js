@@ -5,7 +5,7 @@ import mongoose    from 'mongoose';
 import { DATABASE } from './config'; // get our config file
 import user from './routes/user';
 import needingToken from './routes/needingToken';
-import needingTokenAndVerified from './routes/needingTokenAndVerified';
+import needingTokenAndEmailVerified from './routes/needingTokenAndEmailVerified';
 
 mongoose.connect(DATABASE); // connect to database
 
@@ -16,7 +16,7 @@ app.use(morgan('dev'));
 app.use('/', user);
 
 app.use('/needingToken', needingToken);
-app.use('/needingTokenAndVerified', needingTokenAndVerified);
+app.use('/needingTokenAndEmailVerified', needingTokenAndEmailVerified);
 
 const port = process.env.PORT || 8080; // used to create,sign, and verify tokens
 app.listen(port);

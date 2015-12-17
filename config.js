@@ -1,3 +1,4 @@
+export const APP_NAME = 'TEST';
 export const SECRET = 'ilovetim'; // jwt secret
 export const DATABASE = 'mongodb://localhost/database'; // mongodb url
 export const BASEURL = 'http://localhost:8080'; // api url

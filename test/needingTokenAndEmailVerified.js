@@ -8,7 +8,7 @@ const { NEED_EMAIL_VERIFICATION } = USER_MESSAGE;
 
 let token = '';
 
-describe('GET /needingTokenAndVerified', function () {
+describe('GET /needingTokenAndEmailVerified', function () {
 
   before(async function() {
     const signupRes = await axios.post(`${BASEURL}/signup`, {
@@ -26,7 +26,7 @@ describe('GET /needingTokenAndVerified', function () {
   });
 
   it('should need token', function () {
-    return axios.get(`${BASEURL}/needingTokenAndVerified`)
+    return axios.get(`${BASEURL}/needingTokenAndEmailVerified`)
       .then((res) => {
         throw res;
       }).catch((res) => {
@@ -36,7 +36,7 @@ describe('GET /needingTokenAndVerified', function () {
   });
 
   it('should need email verified', function () {
-    return axios.get(`${BASEURL}/needingTokenAndVerified`, {params: {token}})
+    return axios.get(`${BASEURL}/needingTokenAndEmailVerified`, {params: {token}})
       .then((res) => {
         assert.equal(res.data.success, false, 'should be false');
         assert.equal(res.data.message, NEED_EMAIL_VERIFICATION, 'shoud need email verification');
