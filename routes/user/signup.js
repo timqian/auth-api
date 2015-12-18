@@ -1,6 +1,7 @@
 import createToken from '../../utils/createToken';
 import sendMail from '../../utils/sendMail';
 import User from '../../models/User';
+import { hashPassword } from '../../utils/crypts';
 
 import { BASEURL, USER_MESSAGE } from '../../config';
 const { MAIL_SENT, NAME_TAKEN } = USER_MESSAGE;
@@ -12,16 +13,17 @@ export default async function(req, res) {
   const user = await User.findOne({ $or: [ { name }, { email } ] });
 
   if (!user) {
-    await new User({ email, name, password, verified: false }).save();
+    const hashedPassword = await hashPassword(password);
+    await new User({ email, name, password: hashedPassword, verified: false }).save();
 
     console.log('____User saved successfully');
 
     // send verification email
     const token = createToken({ name });
-    const verifyAddress =
+    const address =
       `${BASEURL}/emailVerification/?token=${token}`;
 
-    sendMail(email, verifyAddress)
+    sendMail(email, address)
       .then((info) => {
         res.json({ success: true, message: MAIL_SENT });
         console.log('Email sent: ' + info.response);

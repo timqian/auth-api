@@ -40,7 +40,7 @@ TODO
 - [x]  verify email address: https://github.com/andris9/Nodemailer
 token：http://jonatan.nilsson.is/stateless-tokens-with-jwt/
 way：https://www.v2ex.com/t/100736
-- [ ] password bcrypt：https://github.com/ncb000gt/node.bcrypt.js/ blog: http://devsmash.com/blog/password-authentication-with-mongoose-and-bcrypt
+- [x] password bcrypt：https://github.com/ncb000gt/node.bcrypt.js/ blog: http://devsmash.com/blog/password-authentication-with-mongoose-and-bcrypt
 - [ ] reset password
 - [ ] write api doc by [apidoc](https://github.com/apidoc/apidoc)
 - [x] promisify

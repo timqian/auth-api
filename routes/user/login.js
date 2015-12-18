@@ -1,5 +1,7 @@
 import  User    from '../../models/User'; // get our mongoose model
 import createToken from '../../utils/createToken';
+import { checkPassword } from '../../utils/crypts';
+
 import { USER_MESSAGE } from '../../config';
 const { USER_NOT_FOUND, WRONG_PASSWORD } = USER_MESSAGE;
 
@@ -14,7 +16,8 @@ export default async function(req, res) {
   } else if (user) {
 
     // check if password matches
-    if (user.password !== password) {
+    const result = await checkPassword(password, user.password);
+    if ( !result ) {
       res.json({ success: false, message: WRONG_PASSWORD });
     } else {
 

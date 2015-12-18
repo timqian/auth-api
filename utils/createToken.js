@@ -1,4 +1,4 @@
-import jwt         from 'jsonwebtoken';
+import jwt from 'jsonwebtoken';
 import { SECRET, EXPIRES_IN }  from '../config';
 
 export default function(payload) {
