@@ -43,7 +43,7 @@ way：https://www.v2ex.com/t/100736
 - [ ] password bcrypt：https://github.com/ncb000gt/node.bcrypt.js/ blog: http://devsmash.com/blog/password-authentication-with-mongoose-and-bcrypt
 - [ ] reset password
 - [ ] write api doc by [apidoc](https://github.com/apidoc/apidoc)
-- [ ] promisify
+- [x] promisify
 - [ ] https
 
 ### Untested routes:

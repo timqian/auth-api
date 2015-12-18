@@ -3,33 +3,32 @@ import createToken from '../../utils/createToken';
 import { USER_MESSAGE } from '../../config';
 const { USER_NOT_FOUND, WRONG_PASSWORD } = USER_MESSAGE;
 
-export default function(req, res) {
+export default async function(req, res) {
   const { email, name, password } = req.body;
 
   // find the user and
-  User.findOne({ $or: [ { name }, { email } ] }, (err, user) => {
-    if (err) throw err;
-    if (!user) {
-      res.json({ success: false, message: USER_NOT_FOUND });
-    } else if (user) {
+  const user = await User.findOne({ $or: [ { name }, { email } ] });
 
-      // check if password matches
-      if (user.password !== password) {
-        res.json({ success: false, message: WRONG_PASSWORD });
-      } else {
+  if (!user) {
+    res.json({ success: false, message: USER_NOT_FOUND });
+  } else if (user) {
 
-        // if user is found and password is right
-        // create a token
-        const payload = { name: user.name, verified: user.verified };
-        const token = createToken(payload);
+    // check if password matches
+    if (user.password !== password) {
+      res.json({ success: false, message: WRONG_PASSWORD });
+    } else {
 
-        // return the information including token as JSON
-        res.json({
-          success: true,
-          message: 'Enjoy your token!',
-          token: token
-        });
-      }
+      // if user is found and password is right
+      // create a token
+      const payload = { name: user.name, verified: user.verified };
+      const token = createToken(payload);
+
+      // return the information including token as JSON
+      res.json({
+        success: true,
+        message: 'Enjoy your token!',
+        token: token
+      });
     }
-  });
+  }
 }
