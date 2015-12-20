@@ -46,6 +46,7 @@ way：https://www.v2ex.com/t/100736
 - [x] promisify
 - [ ] https
 - [ ] different jwt expire time for mail verification and login status
+- [ ] refine http status code
 
 ### Untested routes:
 
