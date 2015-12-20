@@ -45,6 +45,7 @@ way：https://www.v2ex.com/t/100736
 - [ ] write api doc by [apidoc](https://github.com/apidoc/apidoc)
 - [x] promisify
 - [ ] https
+- [ ] different jwt expire time for mail verification and login status
 
 ### Untested routes:
 
