@@ -20,13 +20,15 @@ describe('GET /needingToken', function () {
       email: `${EMAIL_RECEIVING_VERIFICATION}`,
       name: `tim`,
       password: '123',
-    }).catch((e) => { throw e;});
+    }).catch((res) => {
+      console.log('before message:', res.data);
+    });
     // console.log(signupRes);
 
     const loginRes = await axios.post(`${BASEURL}/login`, {
       name: 'tim',
       password: '123',
-    }).catch((e) => { throw e; });
+    }).catch((res) => { throw res.data;});
 
     token = loginRes.data.token;
     // console.log(token);
@@ -37,7 +39,6 @@ describe('GET /needingToken', function () {
     return axios.get(`${BASEURL}/needingToken`)
       .then((res) => { throw res; })
       .catch((res) => {
-        // console.log(res.data);
         assert.equal(res.data.success, false, 'should be false');
       });
   });
@@ -47,7 +48,7 @@ describe('GET /needingToken', function () {
       .then((res) => {
         // console.log(res.data);
         assert.equal(typeof res.data.name, 'string', 'name should be String');
-      }).catch((e) => { throw e; });
+      });
   });
 
 });

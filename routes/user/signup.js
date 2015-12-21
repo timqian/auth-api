@@ -29,13 +29,13 @@ export default async function(req, res) {
         console.log('Email sent: ' + info.response);
       })
       .catch((err) => {
-        res.json({ success: false, message: 'email sent error' });
+        res.status(500).json({ success: false, message: 'email sent error' });
         console.log('Email not sent, err:' + err);
       });
 
   } else {
     console.log('____User not saved, name or email has been taken');
-    res.json({ success: false, message: NAME_TAKEN, });
+    res.status(400).json({ success: false, message: NAME_TAKEN, });
   }
 
 }

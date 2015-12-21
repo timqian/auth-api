@@ -16,28 +16,9 @@ describe('POST /signup', function () {
       password: '123',
     }).then((res) => {
       console.log('before message:', res.data);
-    }).catch((e) => { throw e; });
-  });
-
-
-  it('should return NAME_TAKEN(email)', function () {
-    return axios.post(`${BASEURL}/signup`, {
-      email: `${EMAIL_RECEIVING_VERIFICATION}`,
-      name: `timq`,
-      password: '123',
-    }).then((res) => {
-      assert.equal(res.data.message, NAME_TAKEN, 'message mismatch');
-    }).catch((e) => { throw e; });
-  });
-
-  it('should return NAME_TAKEN(name)', function () {
-    return axios.post(`${BASEURL}/signup`, {
-      email: 't92@qq.com',
-      name: `tim`,
-      password: '123',
-    }).then((res) => {
-      assert.equal(res.data.message, NAME_TAKEN, 'message mismatch');
-    }).catch((e) => { throw e; });
+    }).catch((res) => {
+      console.log('before message:', res.data);
+    });
   });
 
   it('should return MAIL_SENT', function () {
@@ -46,9 +27,33 @@ describe('POST /signup', function () {
       name: `tim${Date.now()}`,
       password: '123',
     }).then((res) => {
-      console.log(res.data);
+      // console.log(res.data);
       assert.equal(res.data.message, MAIL_SENT, 'message mismatch');
-    }).catch((e) => { throw e; });
+    });
+  });
+
+  it('should return NAME_TAKEN(email)', function () {
+    return axios.post(`${BASEURL}/signup`, {
+      email: `${EMAIL_RECEIVING_VERIFICATION}`,
+      name: `timq`,
+      password: '123',
+    }).then((res) => {
+      throw res;
+    }).catch((res) => {
+      assert.equal(res.data.message, NAME_TAKEN, 'message mismatch');
+    });
+  });
+
+  it('should return NAME_TAKEN(name)', function () {
+    return axios.post(`${BASEURL}/signup`, {
+      email: 't92@qq.com',
+      name: `tim`,
+      password: '123',
+    }).then((res) => {
+      throw res;
+    }).catch((res) => {
+      assert.equal(res.data.message, NAME_TAKEN, 'message mismatch');
+    });
   });
 
 });

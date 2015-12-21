@@ -46,7 +46,8 @@ way：https://www.v2ex.com/t/100736
 - [x] promisify
 - [ ] https
 - [ ] different jwt expire time for mail verification and login status
-- [ ] refine http status code
+- [x] refine http status code (http://www.restapitutorial.com/httpstatuscodes.html)
+- [ ] publish as an npm package
 
 ### Untested routes:
 

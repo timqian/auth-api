@@ -17,7 +17,9 @@ describe('POST /login', function () {
       password: '123',
     }).then((res) => {
       console.log('before message:', res.data);
-    }).catch((e) => { throw e; });
+    }).catch((res) => {
+      console.log('before message:', res.data);
+    });
   });
 
   it('should success', function () {
@@ -27,7 +29,7 @@ describe('POST /login', function () {
     }).then((res) => {
       assert.equal(res.data.success, true, 'success should be true');
       assert.notEqual(res.data.token, null, 'token should exist');
-    }).catch((e) => { throw e; });
+    });
   });
 
   it('should success', function () {
@@ -37,7 +39,7 @@ describe('POST /login', function () {
     }).then((res) => {
       assert.equal(res.data.success, true, 'success should be true');
       assert.notEqual(res.data.token, null, 'token should exist');
-    }).catch((e) => { throw e; });
+    });
   });
 
   it('should return USER_NOT_FOUND', function () {
@@ -45,8 +47,10 @@ describe('POST /login', function () {
       name: `tim${Date.now()}`,
       password: '123',
     }).then((res) => {
+      throw res;
+    }).catch((res) => {
       assert.equal(res.data.message, USER_NOT_FOUND, 'message mismatch');
-    }).catch((e) => { throw e; });
+    });
   });
 
   it('should return USER_NOT_FOUND', function () {
@@ -54,8 +58,10 @@ describe('POST /login', function () {
       email: `tim${Date.now()}@qq.com`,
       password: '123',
     }).then((res) => {
+      throw res;
+    }).catch((res) => {
       assert.equal(res.data.message, USER_NOT_FOUND, 'message mismatch');
-    }).catch((e) => { throw e; });
+    });
   });
 
   it('should return WRONG_PASSWORD', function () {
@@ -63,8 +69,10 @@ describe('POST /login', function () {
       name: `tim`,
       password: '1234',
     }).then((res) => {
+      throw res;
+    }).catch((res) => {
       assert.equal(res.data.message, WRONG_PASSWORD, 'message mismatch');
-    }).catch((e) => { throw e; });
+    });
   });
 
   it('should return WRONG_PASSWORD', function () {
@@ -72,7 +80,9 @@ describe('POST /login', function () {
       email: `${EMAIL_RECEIVING_VERIFICATION}`,
       password: '1234',
     }).then((res) => {
+      throw res;
+    }).catch((res) => {
       assert.equal(res.data.message, WRONG_PASSWORD, 'message mismatch');
-    }).catch((e) => { throw e; });
+    });
   });
 });

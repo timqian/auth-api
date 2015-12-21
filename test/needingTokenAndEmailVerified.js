@@ -15,12 +15,14 @@ describe('GET /needingTokenAndEmailVerified', function () {
       email: `${EMAIL_RECEIVING_VERIFICATION}`,
       name: `tim`,
       password: '123',
-    }).catch((e) => { throw e; });
+    }).catch((res) => {
+      console.log('before message:', res.data);
+    });
 
     const loginRes = await axios.post(`${BASEURL}/login`, {
       name: 'tim',
       password: '123',
-    }).catch((e) => { throw e; });
+    }).catch((res) => { throw res.data; });
 
     token = loginRes.data.token;
   });
@@ -37,10 +39,11 @@ describe('GET /needingTokenAndEmailVerified', function () {
 
   it('should need email verified', function () {
     return axios.get(`${BASEURL}/needingTokenAndEmailVerified`, {params: {token}})
-      .then((res) => {
+      .then((res) => { throw res; })
+      .catch((res) => {
         assert.equal(res.data.success, false, 'should be false');
         assert.equal(res.data.message, NEED_EMAIL_VERIFICATION, 'shoud need email verification');
-      }).catch((e) => { throw e; });
+      });
   });
 
   // it('should success', function  () {

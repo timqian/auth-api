@@ -10,4 +10,4 @@ const User = mongoose.model('User', new Schema({
   verified: Boolean,
 }));
 
-export default  User;
+export default User;

@@ -12,13 +12,13 @@ export default async function(req, res) {
   const user = await User.findOne({ $or: [ { name }, { email } ] });
 
   if (!user) {
-    res.json({ success: false, message: USER_NOT_FOUND });
+    res.status(400).json({ success: false, message: USER_NOT_FOUND });
   } else if (user) {
 
     // check if password matches
     const result = await checkPassword(password, user.password);
     if ( !result ) {
-      res.json({ success: false, message: WRONG_PASSWORD });
+      res.status(400).json({ success: false, message: WRONG_PASSWORD });
     } else {
 
       // if user is found and password is right
@@ -27,7 +27,7 @@ export default async function(req, res) {
       const token = createToken(payload);
 
       // return the information including token as JSON
-      res.json({
+      res.status(200).json({
         success: true,
         message: 'Enjoy your token!',
         token: token
