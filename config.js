@@ -1,7 +1,7 @@
 export const APP_NAME = 'TEST';
 export const SECRET = 'ilovetim'; // jwt secret
 export const DATABASE = 'mongodb://localhost/database'; // mongodb url
-export const BASEURL = 'http://localhost:8080'; // api url
+export const BASEURL = 'http://localhost:3000'; // api url
 export const EXPIRES_IN = 24 * 60 * 60; // token expires time(24 hours)
 
 export const EMAIL_SENDER = { // used to send mail by nodemailer
@@ -17,6 +17,7 @@ export const USER_MESSAGE = { // message sent to client
   NAME_TAKEN: 'Name or email has been taken',
   USER_NOT_FOUND: 'User not found',
   WRONG_PASSWORD: 'wrong password',
+  LOGIN_SUCCESS: 'Enjoy your token!',
   NEED_EMAIL_VERIFICATION: 'You need to verify your email first',
 };
 

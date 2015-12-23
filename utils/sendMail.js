@@ -9,7 +9,7 @@ const transporter = createTransport(EMAIL_SENDER);
  * to: mail
  * verifyAddress:
  */
-export default function sendMail(email, verifyAddress) {
+export default function sendMail(targetAddress, content) {
   // NB! No need to recreate the transporter object. You can use
   // the same transporter object for all e-mails
   console.log(typeof email);
@@ -17,12 +17,9 @@ export default function sendMail(email, verifyAddress) {
   // setup e-mail data with unicode symbols
   let mailOptions = {
       from: `${APP_NAME} ✔ <${EMAIL_SENDER.auth.sender}>`, // sender address
-      to: `${email}`,                              // list of receivers
+      to: `${targetAddress}`,                              // list of receivers
       subject: 'Email verification', // Subject line
-      text: `${verifyAddress}`, // plaintext body
-      html: `<a href="${verifyAddress}">
-               Click to verify your email
-             </a>`
+      html: `${content}`,
   };
 
   // send mail with defined transport object

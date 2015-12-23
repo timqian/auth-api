@@ -41,7 +41,7 @@ TODO
 token：http://jonatan.nilsson.is/stateless-tokens-with-jwt/
 way：https://www.v2ex.com/t/100736
 - [x] password bcrypt：https://github.com/ncb000gt/node.bcrypt.js/ blog: http://devsmash.com/blog/password-authentication-with-mongoose-and-bcrypt
-- [ ] reset password
+- [x] reset password
 - [ ] write api doc by [apidoc](https://github.com/apidoc/apidoc)
 - [x] promisify
 - [ ] https

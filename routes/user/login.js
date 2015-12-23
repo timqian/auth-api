@@ -3,7 +3,7 @@ import createToken from '../../utils/createToken';
 import { checkPassword } from '../../utils/crypts';
 
 import { USER_MESSAGE } from '../../config';
-const { USER_NOT_FOUND, WRONG_PASSWORD } = USER_MESSAGE;
+const { USER_NOT_FOUND, WRONG_PASSWORD, LOGIN_SUCCESS } = USER_MESSAGE;
 
 export default async function(req, res) {
   const { email, name, password } = req.body;
@@ -29,7 +29,8 @@ export default async function(req, res) {
       // return the information including token as JSON
       res.status(200).json({
         success: true,
-        message: 'Enjoy your token!',
+        message: `${LOGIN_SUCCESS} ${user.name}`,
+        name: user.name,
         token: token
       });
     }

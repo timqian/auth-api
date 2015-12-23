@@ -20,9 +20,9 @@ app.use('/', user);
 app.use('/needingToken', needingToken);
 app.use('/needingTokenAndEmailVerified', needingTokenAndEmailVerified);
 
-const port = process.env.PORT || 8080; // used to create,sign, and verify tokens
+const port = 3000; // used to create,sign, and verify tokens
 app.listen(port);
-console.log('Magic happens at http://localhost:' + port);
+console.log('API magic happens at http://localhost:' + port);
 
 
 // handle unhandled promise rejection

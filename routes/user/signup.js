@@ -9,6 +9,10 @@ const { MAIL_SENT, NAME_TAKEN } = USER_MESSAGE;
 export default async function(req, res) {
   const { email, name, password } = req.body;
 
+  if ( !name || !password || !email ) {
+    res.status(400).json({ success: false, message: 'info not enough', });
+  }
+
   // see if name or email is occupied
   const user = await User.findOne({ $or: [ { name }, { email } ] });
 
@@ -20,18 +24,19 @@ export default async function(req, res) {
 
     // send verification email
     const token = createToken({ name });
-    const address =
-      `${BASEURL}/emailVerification/?token=${token}`;
+    const verifyAddress =
+      `${BASEURL}/email_verification/?token=${token}`;
+    const content = `<a href="${verifyAddress}">
+       Click to verify your email address.
+     </a>`;
+    const info = await sendMail(email, content).catch((err) => {
+      res.status(500).json({ success: false, message: 'email sent error' });
+      console.log('Email not sent, err:' + err);
+    });
 
-    sendMail(email, address)
-      .then((info) => {
-        res.json({ success: true, message: MAIL_SENT });
-        console.log('Email sent: ' + info.response);
-      })
-      .catch((err) => {
-        res.status(500).json({ success: false, message: 'email sent error' });
-        console.log('Email not sent, err:' + err);
-      });
+    res.json({ success: true, message: MAIL_SENT });
+    console.log('Email sent: ' + info.response);
+
 
   } else {
     console.log('____User not saved, name or email has been taken');
