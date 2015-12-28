@@ -13,6 +13,7 @@ export default {
     }
   },
 
+
   USER_MESSAGE: { // message sent to client
     MAIL_SENT: 'mail sent',
     NAME_TAKEN: 'Name or email has been taken',
