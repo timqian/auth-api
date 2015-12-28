@@ -7,8 +7,6 @@ const { USER_NOT_FOUND, WRONG_PASSWORD, LOGIN_SUCCESS } = USER_MESSAGE;
 
 export default async function(req, res) {
   const { email, name, password } = req.body;
-
-  // find the user and
   const user = await User.findOne({ $or: [ { name }, { email } ] });
 
   if (!user) {
