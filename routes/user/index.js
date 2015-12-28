@@ -1,5 +1,4 @@
 import { Router } from 'express';
-
 import signup from './signup';
 import login from './login';
 import email_verification from './email_verification';
