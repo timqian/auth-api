@@ -9,7 +9,7 @@ export default {
     service: 'Gmail',
     auth: {
       user: 'qianlijiang123@gmail.com',
-      pass: '321qianqian'
+      pass: '321qianqian',
     }
   },
 

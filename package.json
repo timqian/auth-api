@@ -20,18 +20,20 @@
   "license": "MIT",
   "dependencies": {
     "bcrypt": "^0.8.5",
-    "body-parser": "^1.14.1",
     "es6-promisify": "^3.0.0",
+    "jsonwebtoken": "^5.4.1"
+  },
+  "peerDependencies": {
     "express": "^4.13.3",
-    "jsonwebtoken": "^5.4.1",
-    "method-override": "^2.3.5",
-    "mongoose": "^4.2.8",
-    "morgan": "^1.6.1",
-    "nodemailer": "^1.10.0"
+    "mongoose": "^4.2.8"
   },
   "devDependencies": {
     "axios": "^0.7.0",
     "babel-core": "^5.8.34",
-    "mocha": "^2.3.4"
+    "mocha": "^2.3.4",
+    "body-parser": "^1.14.1",
+    "method-override": "^2.3.5",
+    "morgan": "^1.6.1",
+    "nodemailer": "^1.10.0"
   }
 }
