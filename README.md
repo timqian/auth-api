@@ -1,5 +1,3 @@
-## As a starter: []()
+Working on it
 
-## how to use peerdependencies
-
-正如名字所表明的那样
+as a starter see the starter branch: https://github.com/timqian/auth-api/tree/jwtAuth-RESTful-server-starter-2.0
