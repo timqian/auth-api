@@ -1,17 +1,19 @@
 // used to store config
 
-const config = {
-  APP_NAME: 'TEST',
+const sampleConfig = {
+  APP_NAME: 'STOCK APP',
   SECRET: 'ilovetim', // jwt secret
   DATABASE: 'mongodb://localhost/database', // mongodb url
   BASEURL: 'http://localhost:3000', // api url
   EXPIRES_IN: 24 * 60 * 60, // token expires time(24 hours)
 
   EMAIL_SENDER: { // used to send mail by nodemailer
-    service: 'Gmail',
+    host: 'smtp.qq.com',
+    port: 465,
+	  secureConnection: true,
     auth: {
-      user: 'qianlijiang123@gmail.com',
-      pass: '321qianqian',
+      user: '1912227926@qq.com',
+      pass: 'lily1985',
     }
   },
 
@@ -27,4 +29,4 @@ const config = {
   EMAIL_RECEIVING_VERIFICATION: 'timqian92@qq.com',
 };
 
-export default config;
+export default sampleConfig;

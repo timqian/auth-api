@@ -1,15 +1,16 @@
-import user from './routes/user';
+import router from './router';
 import verifyToken from './utils/verifyToken';
+import config from './config';
 
 export default {
   init: (userConfig) => {
     Object.keys(userConfig).forEach((key) => {
-      if (key) global.authApi[key] = userConfig[key];
+      if (key) config[key] = userConfig[key];
     });
-    console.log(global.authApi.EMAIL_RECEIVING_VERIFICATION);
+    console.log(config.EMAIL_RECEIVING_VERIFICATION);
   },
 
-  authRouter: user,
+  authRouter: router,
 
   verifyToken
 };

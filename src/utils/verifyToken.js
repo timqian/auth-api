@@ -4,7 +4,7 @@
  */
 
 import jwt from 'jsonwebtoken';
-
+import config from '../config';
 
 export default function (req, res, next) {
 
@@ -16,7 +16,7 @@ export default function (req, res, next) {
   if (token) {
 
     // verifies secret and checks exp
-    jwt.verify(token, global.authApi.SECRET, (err, decoded) => {
+    jwt.verify(token, config.SECRET, (err, decoded) => {
       if (err) {
         return res.json({
           success: false,

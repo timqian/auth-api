@@ -1,7 +1,7 @@
-import  User    from '../../models/User'; // get our mongoose model
-import createToken from '../../utils/createToken';
-import { checkPassword } from '../../utils/crypts';
-
+import  User    from '../models/User'; // get our mongoose model
+import createToken from '../utils/createToken';
+import { checkPassword } from '../utils/crypts';
+import config from '../config';
 
 
 export default async function(req, res) {
@@ -9,13 +9,13 @@ export default async function(req, res) {
   const user = await User.findOne({ $or: [ { name }, { email } ] });
 
   if (!user) {
-    res.status(400).json({ success: false, message: global.authApi.USER_MESSAGE.USER_NOT_FOUND });
+    res.status(400).json({ success: false, message: config.USER_MESSAGE.USER_NOT_FOUND });
   } else if (user) {
 
     // check if password matches
     const result = await checkPassword(password, user.password);
     if ( !result ) {
-      res.status(400).json({ success: false, message: global.authApi.USER_MESSAGE.WRONG_PASSWORD });
+      res.status(400).json({ success: false, message: config.USER_MESSAGE.WRONG_PASSWORD });
     } else {
 
       // if user is found and password is right
@@ -26,7 +26,7 @@ export default async function(req, res) {
       // return the information including token as JSON
       res.status(200).json({
         success: true,
-        message: `${global.authApi.USER_MESSAGE.LOGIN_SUCCESS} ${user.name}`,
+        message: `${config.USER_MESSAGE.LOGIN_SUCCESS} ${user.name}`,
         name: user.name,
         token: token
       });

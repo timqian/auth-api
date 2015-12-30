@@ -12,7 +12,7 @@ router.get('/', verifyToken, (req, res) => {
   } else {
     res.json({
       success: false,
-      message: global.authApi.NEED_EMAIL_VERIFICATION,
+      message: config.NEED_EMAIL_VERIFICATION,
     });
   }
 

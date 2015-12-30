@@ -3,7 +3,7 @@ import signup from './signup';
 import login from './login';
 import email_verification from './email_verification';
 import password_reset from './password_reset';
-import verifyToken from '../../utils/verifyToken';
+import verifyToken from '../utils/verifyToken';
 
 const router = new Router();
 

@@ -1,4 +1,4 @@
-import User from '../../models/User';
+import User from '../models/User';
 
 // set email verified
 export default async function(req, res) {

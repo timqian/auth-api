@@ -1,8 +1,8 @@
-import createToken from '../../utils/createToken';
-import sendMail from '../../utils/sendMail';
-import User from '../../models/User';
-import { hashPassword } from '../../utils/crypts';
-
+import createToken from '../utils/createToken';
+import sendMail from '../utils/sendMail';
+import User from '../models/User';
+import { hashPassword } from '../utils/crypts';
+import config from '../config';
 
 
 export default async function(req, res) {
@@ -24,7 +24,7 @@ export default async function(req, res) {
     // send verification email
     const token = createToken({ name });
     const verifyAddress =
-      `${global.authApi.BASEURL}/email_verification/?token=${token}`;
+      `${config.BASEURL}/email_verification/?token=${token}`;
     const content = `<a href="${verifyAddress}">
        Click to verify your email address.
      </a>`;
@@ -33,13 +33,13 @@ export default async function(req, res) {
       console.log('Email not sent, err:' + err);
     });
 
-    res.json({ success: true, message: global.authApi.USER_MESSAGE.MAIL_SENT });
+    res.json({ success: true, message: config.USER_MESSAGE.MAIL_SENT });
     console.log('Email sent: ' + info.response);
 
 
   } else {
     console.log('____User not saved, name or email has been taken');
-    res.status(400).json({ success: false, message: global.authApi.USER_MESSAGE.NAME_TAKEN, });
+    res.status(400).json({ success: false, message: config.USER_MESSAGE.NAME_TAKEN, });
   }
 
 }

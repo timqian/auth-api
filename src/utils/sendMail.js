@@ -1,7 +1,8 @@
 import { createTransport } from 'nodemailer';
+import config from '../config';
 
 // create reusable transporter object using SMTP transport
-const transporter = createTransport(global.authApi.EMAIL_SENDER);
+const transporter = createTransport(config.EMAIL_SENDER);
 
 /**
  * to: mail
@@ -14,7 +15,7 @@ export default function sendMail(targetAddress, content) {
 
   // setup e-mail data with unicode symbols
   let mailOptions = {
-      from: `${global.authApi.APP_NAME} ✔ <${global.authApi.EMAIL_SENDER.auth.sender}>`, // sender address
+      from: `${config.APP_NAME} ✔ <${config.EMAIL_SENDER.auth.sender}>`, // sender address
       to: `${targetAddress}`,                              // list of receivers
       subject: 'Email verification', // Subject line
       html: `${content}`,
