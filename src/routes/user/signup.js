@@ -3,8 +3,7 @@ import sendMail from '../../utils/sendMail';
 import User from '../../models/User';
 import { hashPassword } from '../../utils/crypts';
 
-import { BASEURL, USER_MESSAGE } from '../../config';
-const { MAIL_SENT, NAME_TAKEN } = USER_MESSAGE;
+
 
 export default async function(req, res) {
   const { email, name, password } = req.body;
@@ -20,12 +19,12 @@ export default async function(req, res) {
     const hashedPassword = await hashPassword(password);
     await new User({ email, name, password: hashedPassword, verified: false }).save();
 
-    console.log('____User saved successfully');
+    console.log('____User saved');
 
     // send verification email
     const token = createToken({ name });
     const verifyAddress =
-      `${BASEURL}/email_verification/?token=${token}`;
+      `${global.authApi.BASEURL}/email_verification/?token=${token}`;
     const content = `<a href="${verifyAddress}">
        Click to verify your email address.
      </a>`;
@@ -34,13 +33,13 @@ export default async function(req, res) {
       console.log('Email not sent, err:' + err);
     });
 
-    res.json({ success: true, message: MAIL_SENT });
+    res.json({ success: true, message: global.authApi.USER_MESSAGE.MAIL_SENT });
     console.log('Email sent: ' + info.response);
 
 
   } else {
     console.log('____User not saved, name or email has been taken');
-    res.status(400).json({ success: false, message: NAME_TAKEN, });
+    res.status(400).json({ success: false, message: global.authApi.USER_MESSAGE.NAME_TAKEN, });
   }
 
 }

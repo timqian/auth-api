@@ -1,3 +1,5 @@
+// throw 'err' 会被 catch 到. 如果没有 catch， 程序报错后退出
+
 function throwErr() {
   throw 'err';
 }

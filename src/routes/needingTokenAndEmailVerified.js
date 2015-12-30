@@ -1,8 +1,7 @@
 import { Router } from 'express';
 import verifyToken from '../utils/verifyToken';
 
-import { USER_MESSAGE } from '../config';
-const { NEED_EMAIL_VERIFICATION } = USER_MESSAGE;
+
 
 const router = new Router();
 
@@ -13,7 +12,7 @@ router.get('/', verifyToken, (req, res) => {
   } else {
     res.json({
       success: false,
-      message: NEED_EMAIL_VERIFICATION,
+      message: global.authApi.NEED_EMAIL_VERIFICATION,
     });
   }
 

@@ -3,7 +3,6 @@ import bodyParser  from 'body-parser';
 import methodOverride from 'method-override';
 import morgan      from 'morgan';
 import mongoose    from 'mongoose';
-import { DATABASE } from './config'; // get our config file
 import user from './routes/user';
 import needingToken from './routes/needingToken';
 import needingTokenAndEmailVerified from './routes/needingTokenAndEmailVerified';
@@ -12,7 +11,7 @@ import needingTokenAndEmailVerified from './routes/needingTokenAndEmailVerified'
 mongoose.connect(DATABASE); // connect to database
 
 const app = express();
-app.use(bodyParser.urlencoded({ extended: false }));
+// app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(methodOverride());
 app.use(morgan('dev'));

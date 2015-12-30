@@ -1,3 +1,5 @@
+// nodemailer 基本使用
+
 var nodemailer = require('nodemailer');
 
 // create reusable transporter object using SMTP transport
