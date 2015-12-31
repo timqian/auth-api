@@ -59,3 +59,10 @@ app.use('/', authApi.authRouter);
 app.listen(3000);
 console.log('API magic happens at http://localhost:3000');
 ```
+
+## TODOS
+
+- [ ] better config params
+- [ ] complete test code
+- [ ] docs
+- [ ] maybe some new feature
