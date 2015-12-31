@@ -4,7 +4,8 @@ As a starter see the starter branch: https://github.com/timqian/auth-api/tree/jw
 
 ## Why did I made this module
 
-In order to reuse authentication part code of REST server(as a module). Thanks to `express.Router`.
+In order to reuse authentication part code of REST server(as a module), easily and flexibly.
+Thanks to `express.Router`.
 
 ## Sample usage:
 
