@@ -7,7 +7,7 @@ As a starter see the starter branch: https://github.com/timqian/auth-api/tree/jw
 
 1. Install auth-api and peerDependencies:
 
-  `npm install auth-api express body-parser morgan --save`
+  `npm install auth-api express body-parser mongoose --save`
 
 2. run the code below and auth server will start
 
@@ -15,9 +15,7 @@ As a starter see the starter branch: https://github.com/timqian/auth-api/tree/jw
 import authApi        from 'auth-api';
 import express        from 'express';
 import bodyParser     from 'body-parser';
-import morgan         from 'morgan';
 import mongoose       from 'mongoose';
-import sampleConfig   from './sampleConfig';
 
 mongoose.connect('mongodb://localhost/database'); // connect to database
 
@@ -53,9 +51,7 @@ authApi.init(sampleConfig);
 const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.use(morgan('dev'));
 app.use('/', authApi.authRouter);
-
 app.listen(3000);
 console.log('API magic happens at http://localhost:3000');
 ```
