@@ -12,8 +12,8 @@ const sampleConfig = {
     port: 465,
 	  secureConnection: true,
     auth: {
-      user: '1912227926@qq.com',
-      pass: 'lily1985',
+      user: '403815124@qq.com',
+      pass: 'kobejames2324',
     }
   },
 
