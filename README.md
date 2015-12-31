@@ -7,11 +7,11 @@ As a starter see the starter branch: https://github.com/timqian/auth-api/tree/jw
 
 1. Install auth-api and peerDependencies:
 
-`npm install auth-api express body-parser morgan --save`
+  `npm install auth-api express body-parser morgan --save`
 
 2. run the code below and auth server will start
 
-```
+```javascript
 import authApi        from 'auth-api';
 import express        from 'express';
 import bodyParser     from 'body-parser';
