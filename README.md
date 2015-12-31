@@ -56,6 +56,14 @@ app.listen(3000);
 console.log('API magic happens at http://localhost:3000');
 ```
 
+## Module api
+
+- `authApi.init(config)`: configure the module
+
+- `authApi.authRouter`: an express router I wrote for you
+
+- `authApi.verifyToken`: used to verify token sent by client
+
 ## TODOS
 
 - [ ] better config params
