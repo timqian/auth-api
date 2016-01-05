@@ -1,11 +1,14 @@
-Working on it
+## Purpose
 
-As a starter see the starter branch: https://github.com/timqian/auth-api/tree/jwtAuth-RESTful-server-starter-2.0
-
-## What is this module for?
-
-In order to reuse authentication part code of REST server(as a module), easily and flexibly.
+Reuse authentication part code of REST server, easily and flexibly.
 Thanks to `express.Router`.
+
+## Features
+
+- [jwt](https://github.com/auth0/node-jsonwebtoken) to verify user;
+- [nodemailer](https://github.com/nodemailer/nodemailer) to send verification emails;
+- [mongoose](https://github.com/Automattic/mongoose) to drive mongodb (user model: https://github.com/timqian/auth-api/blob/master/src/models/User.js);
+- [axios](https://github.com/mzabriskie/axios) to test RESTful api(axios can be used both on browser and node, that means the test code can be reused in your web app);
 
 ## Sample usage:
 
@@ -27,11 +30,11 @@ mongoose.connect('mongodb://localhost/database'); // connect to database
 
 const userConfig = {
   APP_NAME: 'STOCK APP',
-  SECRET: 'ilovetim', // jwt secret
-  CLIENT_TOKEN_EXPIRES_IN: 60 * 24 * 60 * 60,          // client token expires time(60day)
+  SECRET: 'ilovetim',                             // jwt secret
+  CLIENT_TOKEN_EXPIRES_IN: 60 * 24 * 60 * 60,     // client token expires time(60day)
   EMAIL_TOKEN_EXPIRES_IN: 24 * 60 * 60,           // email token expires time(24h)
 
-  EMAIL_SENDER: {                             // used to send mail by nodemailer
+  EMAIL_SENDER: {                                 // used to send mail by nodemailer
     service: 'Gmail',
     auth: {
       user: 'qianlijiang123@gmail.com',
@@ -39,7 +42,7 @@ const userConfig = {
     }
   },
 
-  USER_MESSAGE: { // message sent to client
+  USER_MESSAGE: {                                 // message sent to client
     MAIL_SENT: 'mail sent',
     NAME_TAKEN: 'Name or email has been taken',
     USER_NOT_FOUND: 'User not found',
@@ -48,7 +51,7 @@ const userConfig = {
     NEED_EMAIL_VERIFICATION: 'You need to verify your email first',
   },
 
-  API_URL: 'http://localhost:3000'             // to be used in the mail
+  API_URL: 'http://localhost:3000'              // to be used in the mail
 };
 
 authApi.init(userConfig);
@@ -112,26 +115,15 @@ TODO: use apidoc
 - `authApi.authRouter`: an express router I wrote for you
 - `authApi.verifyToken`: used to verify token sent by client
 
-## RESTful API provided by `authApi.authRouter`:
-
-|Method| url                 | data(if needed)                              |
-| ---- |:-------------------:| --------------------------------------------:|
-| POST | /signup             | {name: ..., email: ..., password: ...}       |
-| POST | /login              | {name/email: ..., password: ...}             |
-| POST | /password_reset     | {email: ..., password(the new password): ...}|
-| GET  | /email_verification |                                              |click link in the mail
-
-For detail usage you can look into the test folder(unfinished up to now)
-
 ## TODOS
 
 - [ ] better http status code
 - [ ] better config params
-- [ ] complete test code
 - [ ] docs
 - [ ] new feature
 
+## license
 
-## Contribution
+  MIT
 
-I am new to auth. So there might be much problem in this module, from auth procedure to implementing detail. If your find any mistake I made, please tell me.
+### As a starter see the starter branch: https://github.com/timqian/auth-api/tree/jwtAuth-RESTful-server-starter-2.0
