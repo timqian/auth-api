@@ -24,7 +24,7 @@ export default function sendMail(targetAddress, content) {
       html: `${content}`,
   };
 
-  console.log('sendMail', mailOptions);
+  // console.log('sendMail', mailOptions);
   // send mail with defined transport object
   return transporter.sendMail(mailOptions);
 }

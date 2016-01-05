@@ -19,16 +19,14 @@ Thanks to `express.Router`.
 2. Run the sample code below and boom~~ the auth server will be listening at `http://localhost:3000`
 
 ```javascript
-import authApi        from 'auth-api';
-import express        from 'express';
-import bodyParser     from 'body-parser';
-import methodOverride from 'method-override';
-import morgan         from 'morgan';
-import mongoose       from 'mongoose';
+var authApi        = require('auth-api');
+var express        = require('express');
+var bodyParser     = require('body-parser');
+var mongoose       = require('mongoose');
 
 mongoose.connect('mongodb://localhost/database'); // connect to database
 
-const userConfig = {
+var userConfig = {
   APP_NAME: 'STOCK APP',
   SECRET: 'ilovetim',                             // jwt secret
   CLIENT_TOKEN_EXPIRES_IN: 60 * 24 * 60 * 60,     // client token expires time(60day)
@@ -56,18 +54,16 @@ const userConfig = {
 
 authApi.init(userConfig);
 
-const app = express();
+var app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.use(methodOverride());
-app.use(morgan('dev'));
 app.use('/', authApi.authRouter);
 
 // protecting api
 app.get('/needingToken', authApi.verifyToken, (req, res) => {
 
   // send back the jwt claim directly
-  const claim = req.decoded;
+  var claim = req.decoded;
   res.status(200).json(claim);
 });
 
@@ -94,26 +90,28 @@ process.on('unhandledRejection', function(reason, p) {
 });
 ```
 
+(es6 sample: https://github.com/timqian/auth-api/blob/master/testServer.js)
+
 ## What does the above code do for you
 
 1. Generate the following auth api for you at `http://localhost:3000`
 
-TODO: use apidoc
 
-|Method| url                 | data(if needed)                              | server action |
+|Method| url                 | data(if needed)                              | server action(if request is good) |
 | ---- |---------------------| ---------------------------------------------| -------------|
-| POST | /signup             | {name: ..., email: ..., password: ...}       |               |
-| POST | /login              | {name/email: ..., password: ...}             |              |
-| POST | /password_reset     | {email: ..., password(the new password): ...}|              |
-| GET  | /email_verification |                                              |              |
+| POST | /signup             | {name: ..., email: ..., password: ...}       |create a user in mongodb and send verification email |
+| POST | /login              | {name/email: ..., password: ...}             |check user and return jwt token|
+| POST | /password_reset     | {email: ..., password(the new password): ...}| send verification link to email |
+| GET  | /email_verification |                                              | verify token and change password |
 
+(more details in the code)
 
 
 ## Module api
 
 - `authApi.init(config)`: configure the module
 - `authApi.authRouter`: an express router I wrote for you
-- `authApi.verifyToken`: used to verify token sent by client
+- `authApi.verifyToken`: an express middleware used to verify token sent by client
 
 ## TODOS
 
@@ -126,4 +124,4 @@ TODO: use apidoc
 
   MIT
 
-### As a starter see the starter branch: https://github.com/timqian/auth-api/tree/jwtAuth-RESTful-server-starter-2.0
+### As a starter see the [starter branch](https://github.com/timqian/auth-api/tree/jwtAuth-RESTful-server-starter-2.0)

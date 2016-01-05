@@ -7,7 +7,7 @@ export default {
     Object.keys(userConfig).forEach((key) => {
       config[key] = userConfig[key];
     });
-    console.log(config);
+    // console.log(config);
   },
 
   authRouter: router,

@@ -1,6 +1,6 @@
 {
   "name": "auth-api",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "generate auth api for you",
   "main": "index.js",
   "scripts": {
