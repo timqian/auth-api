@@ -16,24 +16,26 @@ export default async function(req, res) {
   const user = await User.findOne({ $or: [ { name }, { email } ] });
 
   if (!user) {
-    const hashedPassword = await hashPassword(password);
-    await new User({ email, name, password: hashedPassword, verified: false }).save();
-
-    console.log('____User saved');
-
     // send verification email
     const token = createToken({ name });
     const verifyAddress =
-      `${config.BASEURL}/email_verification/?token=${token}`;
-    const content = `<a href="${verifyAddress}">
-       Click to verify your email address.
-     </a>`;
+      `${config.API_URL}/email_verification/?token=${token}`;
+    const content =
+      `<a href="${verifyAddress}">
+         Click to verify your email address.
+      </a>`;
+    
     const info = await sendMail(email, content).catch((err) => {
       res.status(500).json({ success: false, message: 'email sent error' });
       console.log('Email not sent, err:' + err);
     });
 
-    res.json({ success: true, message: config.USER_MESSAGE.MAIL_SENT });
+    const hashedPassword = await hashPassword(password);
+    await new User({ email, name, password: hashedPassword, verified: false }).save();
+
+    console.log('____User saved');
+
+    res.status(200).json({ success: true, message: config.USER_MESSAGE.MAIL_SENT });
     console.log('Email sent: ' + info.response);
 
 

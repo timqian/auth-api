@@ -3,9 +3,8 @@
 const config = {
   APP_NAME: 'TEST',
   SECRET: 'ilovetim', // jwt secret
-  DATABASE: 'mongodb://localhost/database', // mongodb url
-  BASEURL: 'http://localhost:3000', // api url
-  EXPIRES_IN: 24 * 60 * 60, // token expires time(24 hours)
+  CLIENT_TOKEN_EXPIRES_IN: 24 * 60 * 60,          // client token expires time TODO: test expiring
+  EMAIL_TOKEN_EXPIRES_IN: 24 * 60 * 60,           // email token expires time
 
   EMAIL_SENDER: { // used to send mail by nodemailer
     service: 'Gmail',
@@ -24,7 +23,6 @@ const config = {
     NEED_EMAIL_VERIFICATION: 'You need to verify your email first',
   },
 
-  EMAIL_RECEIVING_VERIFICATION: 'timqian92@qq.com',
 };
 
 export default config;

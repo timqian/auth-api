@@ -9,7 +9,7 @@ export default async function(req, res) {
     user.verified = true;
     await user.save();
 
-    res.json({
+    res.status(200).json({
       success: true,
       message: 'Your email account is now verified. Congratulations!'
     });
@@ -18,7 +18,7 @@ export default async function(req, res) {
     user.password = hashedPassword;
     await user.save();
 
-    res.json({
+    res.status(200).json({
       success: true,
       message: 'Your password is updated. Congratulations! '
     });

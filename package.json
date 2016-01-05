@@ -1,10 +1,10 @@
 {
   "name": "auth-api",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "generate auth api for you",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon --exec babel-node -- sampleServer.js",
+    "start": "nodemon --exec babel-node -- testServer.js",
     "test": "mocha --recursive --require babel-register --timeout 15000",
     "compile": "babel -d lib/ src/",
     "prepublish": "npm run compile"
@@ -24,8 +24,7 @@
     "bcrypt": "^0.8.5",
     "es6-promisify": "^3.0.0",
     "jsonwebtoken": "^5.4.1",
-    "nodemailer": "^1.10.0",
-    "nodemailer-wellknown": "^0.1.7"
+    "nodemailer": "^1.10.0"
   },
   "peerDependencies": {
     "express": "^4.0",

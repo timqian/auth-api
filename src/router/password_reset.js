@@ -13,9 +13,9 @@ export default async function(req, res) {
     res.status(400).json({ success: false, message: config.USER_MESSAGE.USER_NOT_FOUND });
   } else {
     const hashedPassword = await hashPassword(password);
-    const token = createToken({ name:user.name, hashedPassword });
+    const token = createToken({ name:user.name, hashedPassword }, config.EMAIL_TOKEN_EXPIRES_IN);
     const verifyAddress =
-      `${config.BASEURL}/email_verification/?token=${token}`;
+      `${config.API_URL}/email_verification/?token=${token}`;
     const content = `<a href="${verifyAddress}">
       Click to change your password.
     </a>`;
@@ -24,7 +24,7 @@ export default async function(req, res) {
       console.log('Email not sent, err:' + err);
     });
 
-    res.json({ success: true, message: config.USER_MESSAGE.MAIL_SENT });
+    res.status(200).json({ success: true, message: config.USER_MESSAGE.MAIL_SENT });
     console.log('Email sent: ' + info.response);
   }
 }

@@ -5,9 +5,9 @@ import config from './config';
 export default {
   init: (userConfig) => {
     Object.keys(userConfig).forEach((key) => {
-      if (key) config[key] = userConfig[key];
+      config[key] = userConfig[key];
     });
-    console.log(config.EMAIL_RECEIVING_VERIFICATION);
+    console.log(config);
   },
 
   authRouter: router,

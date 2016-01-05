@@ -1,23 +1,14 @@
 import axios from 'axios';
 import assert from 'assert';
-import config from '../sampleConfig';
-
-
-let token = '';
+import config from './testConfig';
 
 export default function password_reset() {
+
+  let token = '';
 
   describe('GET /needingTokenAndEmailVerified', function () {
 
     before(async function() {
-      const signupRes = await axios.post(`${config.BASEURL}/signup`, {
-        email: `${config.EMAIL_RECEIVING_VERIFICATION}`,
-        name: `tim`,
-        password: '123',
-      }).catch((res) => {
-        console.log('before message:', res.data);
-      });
-
       const loginRes = await axios.post(`${config.BASEURL}/login`, {
         name: 'tim',
         password: '123',
@@ -40,8 +31,7 @@ export default function password_reset() {
       return axios.get(`${config.BASEURL}/needingTokenAndEmailVerified`, {params: {token}})
         .then((res) => { throw res; })
         .catch((res) => {
-          assert.equal(res.data.success, false, 'should be false');
-          assert.equal(res.data.message, config.USER_MESSAGE.NEED_EMAIL_VERIFICATION, 'shoud need email verification');
+          assert.equal(res.status, 400);
         });
     });
 
