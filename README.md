@@ -8,7 +8,7 @@ Thanks to `express.Router`.
 - [jwt](https://github.com/auth0/node-jsonwebtoken) to verify user;
 - [nodemailer](https://github.com/nodemailer/nodemailer) to send verification emails;
 - [mongoose](https://github.com/Automattic/mongoose) to drive mongodb (user model: https://github.com/timqian/auth-api/blob/master/src/models/User.js);
-- [axios](https://github.com/mzabriskie/axios) to test RESTful api(axios can be used both on browser and node, that means the test code can be reused in your web app);
+- [axios](https://github.com/mzabriskie/axios) to test RESTful api (axios can be used both on browser and node, that means the test code can be reused in your web app);
 
 ## Sample usage:
 
