@@ -1,3 +1,5 @@
+> As a starter see the [starter branch](https://github.com/timqian/auth-api/tree/jwtAuth-RESTful-server-starter-2.0)
+
 ## Purpose
 
 Reuse authentication part code of REST server, easily and flexibly.
@@ -124,7 +126,7 @@ process.on('unhandledRejection', function(reason, p) {
 
   MIT
 
-### As a starter see the [starter branch](https://github.com/timqian/auth-api/tree/jwtAuth-RESTful-server-starter-2.0)
+
 
 [![paypal donate][paypal-image]][paypal-url]
 [paypal-image]: https://www.paypal.com/en_US/i/btn/btn_donate_SM.gif
