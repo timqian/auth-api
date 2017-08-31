@@ -1,4 +1,4 @@
-> As a starter see the [starter branch](https://github.com/timqian/auth-api/tree/jwtAuth-RESTful-server-starter-2.0)
+> As a rest API starter: see the [starter branch](https://github.com/timqian/auth-api/tree/jwtAuth-RESTful-server-starter-2.0)
 
 ## Purpose
 
